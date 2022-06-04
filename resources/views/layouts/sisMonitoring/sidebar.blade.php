@@ -16,7 +16,6 @@
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     <p>
                         Dashboard
-                        <i class="right fas fa-angle-left"></i>
                     </p>
                     </a>
                 </li>
@@ -24,8 +23,7 @@
                     <a href="#" class="nav-link">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     <p>
-                        Dashboard
-                        <i class="right fas fa-angle-left"></i>
+                        View List
                     </p>
                     </a>
                 </li>
@@ -33,17 +31,7 @@
                     <a href="#" class="nav-link">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     <p>
-                        Dashboard
-                        <i class="right fas fa-angle-left"></i>
-                    </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
-                    <p>
-                        Dashboard
-                        <i class="right fas fa-angle-left"></i>
+                        View Map
                     </p>
                     </a>
                 </li>

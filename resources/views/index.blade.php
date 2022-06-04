@@ -19,31 +19,24 @@
 
         <!-- Main content -->
         <section class="content">
-
-        <!-- Default box -->
-        <div class="card">
-            <div class="card-header">
-            <h3 class="card-title">Title</h3>
-
-            <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                <i class="fas fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                <i class="fas fa-times"></i>
-                </button>
+            <!-- Default box -->
+            <div class="card">
+                <div class="card-body">
+                    <!-- grid -->
+                    <div class="d-grid gap-3">
+                        <div class="text-center">
+                            <div class="p-2">
+                                    <h1><strong>ASNMO</strong></h1>
+                                    <h3>Monitoring of State Civil Apparatus</h3>
+                            </div>
+                            <div class="p-2">
+                                    <img src="{{asset('template/')}}/dist/img/korpri.png" class="img-fluid" alt="logo korpri" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            </div>
-            <div class="card-body">
-            Start creating your amazing application!
-            </div>
-            <!-- /.card-body -->
-            <div class="card-footer">
-            Footer
-            </div>
-            <!-- /.card-footer-->
-        </div>
-        <!-- /.card -->
+            <!-- /.card -->
 
         </section>
         <!-- /.content -->

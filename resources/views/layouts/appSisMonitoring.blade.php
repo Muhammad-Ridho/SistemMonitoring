@@ -17,7 +17,7 @@
 <!-- Site wrapper -->
 <div class="wrapper">
     <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light fixed-top">
         @include('layouts.sisMonitoring.navbar')
         @show
     </nav>
