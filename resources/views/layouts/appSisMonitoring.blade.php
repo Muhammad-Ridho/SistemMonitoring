@@ -12,12 +12,37 @@
   <link rel="stylesheet" href="{{asset('template/')}}/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('template/')}}/dist/css/adminlte.min.css">
+  
+  <!-- library google map -->
+  <script src="http://maps.googleapis.com/maps/api/js"></script>
+  <script>
+        // fungsi initialize untuk mempersiapkan peta
+        function initialize() {
+          var propertiPeta = {
+              center:new google.maps.LatLng(-7.983908,112.621391),
+              zoom:10,
+              mapTypeId:google.maps.MapTypeId.ROADMAP
+          };
+        
+          var peta = new google.maps.Map(document.getElementById("googleMap"), propertiPeta);
+
+          var marker=new google.maps.Marker({
+            position: new google.maps.LatLng(-7.983908,112.621391),
+            map: peta
+          });
+        }
+
+        // event jendela di-load  
+        google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
 <div class="wrapper">
     <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light fixed-top">
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
         @include('layouts.sisMonitoring.navbar')
         @show
     </nav>
