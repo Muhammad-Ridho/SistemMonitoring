@@ -90,7 +90,9 @@
 <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
   <script type="text/javascript">
+    
         // Your web app's Firebase configuration
+        // bagian yang perlu diperhatikan
         const firebaseConfig = {
           apiKey: "AIzaSyBVYDR2HWLO9Che85FuX1dLNMw4dkIK76g",
           authDomain: "sismonitoring-730ad.firebaseapp.com",
