@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/viewList', [App\Http\Controllers\ViewListController::class, 'index'])->name('viewList');
 
 Route::get('/viewMaps', [App\Http\Controllers\ViewMapController::class, 'index'])->name('viewMaps');
+
+Route::get('post', [PostController::class, 'index'])->name('post');
