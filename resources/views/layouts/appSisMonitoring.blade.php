@@ -89,7 +89,7 @@
 
 <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
-  <script type="text/javascript">
+<script type="text/javascript">
     
         // Your web app's Firebase configuration
         // bagian yang perlu diperhatikan
@@ -130,6 +130,7 @@
                 }       
                 lastId = index;
             });
+
             $('#table-list').html(htmls);
         });
 
@@ -200,7 +201,32 @@
             $('#post-id').val('');
             $("#delete-modal").modal('hide');
         });
-    </script>
+
+
+        //search bar
+        function mySearchFunction() {
+            // Declare variables
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("mySearch");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("table-list");
+            tr = table.getElementsByTagName("tr");
+
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[1];
+                if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+                }
+            }
+            }
+
+</script>
 
 </body>
 </html>

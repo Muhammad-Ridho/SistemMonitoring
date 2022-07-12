@@ -34,8 +34,8 @@
                                         </div>
                                         <div class="col">
                                             <form class="d-flex" role="search">
-                                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                                                <button class="btn btn-outline-success" type="submit">Search</button>
+                                                <a role="button" class="btn btn-success"><i class="fa fa-search"></i></a>
+                                                <input class="form-control me-2" id="mySearch" onkeyup="mySearchFunction()" type="search" placeholder="Search" aria-label="Search">
                                             </form>
                                         </div>
                                     </div>
@@ -172,7 +172,7 @@
 
         </section>
         <!-- /.content -->
-        <script>
-            
-        </script>
+    <script>
+        
+    </script>
 @endsection
