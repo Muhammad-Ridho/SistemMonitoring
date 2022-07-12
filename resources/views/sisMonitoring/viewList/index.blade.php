@@ -36,7 +36,7 @@
                                             <form class="d-flex" role="search">
                                                 <a role="button" class="btn btn-success"><i class="fa fa-search"></i></a>
                                                 <input class="form-control me-2" id="mySearch" onkeyup="mySearchFunction()" type="search" placeholder="Search" aria-label="Search">
-                                            </form>
+                                            </form> 
                                         </div>
                                     </div>
                                 </div>
