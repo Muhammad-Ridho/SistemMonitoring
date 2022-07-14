@@ -91,7 +91,7 @@
 <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
 <script type="text/javascript">
     
-        // Your web app's Firebase configuration
+    // Your web app's Firebase configuration
         // bagian yang perlu diperhatikan
         const firebaseConfig = {
           apiKey: "AIzaSyBVYDR2HWLO9Che85FuX1dLNMw4dkIK76g",
@@ -104,15 +104,14 @@
           measurementId: "G-VJDEWPL32N"
         };
 
+    //crud halaman viewlist
         // Initialize Firebase
         const app = firebase.initializeApp(firebaseConfig);
-
         var database = firebase.database();
-
         var lastId = 0;
-        
+
         // get post data
-        database.ref("posts").on('value', function(snapshot) {
+        database.ref("employee").on('value', function(snapshot) {
             var value = snapshot.val();
             var htmls = [];
             $.each(value, function(index, value){
@@ -139,7 +138,7 @@
             var formData = $('#add-post').serializeArray();
             var createId = Number(lastId) + 1;
 
-            firebase.database().ref('posts/' + createId).set({
+            firebase.database().ref('employee/' + createId).set({
                 fullname: formData[0].value,
                 idNumber: formData[1].value,
                 home_address: formData[2].value,
@@ -157,7 +156,7 @@
         var updateID = 0;
         $('body').on('click', '.update-post', function() {
             updateID = $(this).attr('data-id');
-            firebase.database().ref('posts/' + updateID).on('value', function(snapshot) {
+            firebase.database().ref('employee/' + updateID).on('value', function(snapshot) {
                 var values = snapshot.val();
                 $('#update-fullname').val(values.fullname);
                 $('#update-idNumber').val(values.idNumber);
@@ -179,7 +178,7 @@
             };
 
             var updatedPost = {};
-            updatedPost['posts/' + updateID] = postData;
+            updatedPost['employee/' + updateID] = postData;
 
             firebase.database().ref().update(updatedPost);
 
@@ -196,7 +195,7 @@
         // delete post
         $('#delete-button').on('click', function() {
             var id = $('#post-id').val();
-            firebase.database().ref('posts/' + id).remove();
+            firebase.database().ref('employee/' + id).remove();
 
             $('#post-id').val('');
             $("#delete-modal").modal('hide');
@@ -224,7 +223,10 @@
                 }
                 }
             }
-            }
+        }
+
+    //crud userManagement
+
 
 </script>
 

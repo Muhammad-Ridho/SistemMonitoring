@@ -172,7 +172,4 @@
 
         </section>
         <!-- /.content -->
-    <script>
-        
-    </script>
 @endsection

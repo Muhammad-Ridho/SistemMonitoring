@@ -20,16 +20,32 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{url('/viewList')}}" class="nav-link">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <a href="{{url('/userManagement')}}" class="nav-link">
+                    <i class="nav-icon fas fa-user"></i>
                     <p>
-                        View List
+                        User Management
+                    </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{url('/viewList')}}" class="nav-link">
+                    <i class="nav-icon fas fa-users"></i>
+                    <p>
+                        Employee
+                    </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{url('/absensiEmployee')}}" class="nav-link">
+                    <i class="nav-icon fas fa-desktop"></i>
+                    <p>
+                        Absensi Karyawan
                     </p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{url('/viewMaps')}}" class="nav-link">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <i class="nav-icon fas fa-map"></i>
                     <p>
                         View Maps
                     </p>
