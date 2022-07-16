@@ -34,7 +34,9 @@
                                         </div>
                                         <div class="col">
                                             <form class="d-flex" role="search">
-                                                <a role="button" class="btn btn-success"><i class="fa fa-search"></i></a>
+                                                <a role="label" class="btn btn-default">
+                                                    <i class="fa fa-search"></i>
+                                                </a>
                                                 <input class="form-control me-2" id="mySearch" onkeyup="mySearchFunction()" type="search" placeholder="Search" aria-label="Search">
                                             </form> 
                                         </div>
@@ -54,7 +56,7 @@
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="table-list">
+                                    <tbody id="list-employee">
                                 
                                     </tbody>
                                 </table>
@@ -170,6 +172,7 @@
             </div>
             <!-- /.card -->
 
+            
         </section>
         <!-- /.content -->
 @endsection

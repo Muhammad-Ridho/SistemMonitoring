@@ -89,27 +89,26 @@
 
 <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+
 <script type="text/javascript">
-    
-    // Your web app's Firebase configuration
-        // bagian yang perlu diperhatikan
-        const firebaseConfig = {
-          apiKey: "AIzaSyBVYDR2HWLO9Che85FuX1dLNMw4dkIK76g",
-          authDomain: "sismonitoring-730ad.firebaseapp.com",
-          databaseURL: "https://sismonitoring-730ad-default-rtdb.firebaseio.com",
-          projectId: "sismonitoring-730ad",
-          storageBucket: "sismonitoring-730ad.appspot.com",
-          messagingSenderId: "630375801851",
-          appId: "1:630375801851:web:21d7a8d152de4ef4dba15e",
-          measurementId: "G-VJDEWPL32N"
-        };
 
-    //crud halaman viewlist
-        // Initialize Firebase
-        const app = firebase.initializeApp(firebaseConfig);
-        var database = firebase.database();
-        var lastId = 0;
+    // Config Firebase
+    const firebaseConfig = {
+        apiKey: "AIzaSyBVYDR2HWLO9Che85FuX1dLNMw4dkIK76g",
+        authDomain: "sismonitoring-730ad.firebaseapp.com",
+        databaseURL: "https://sismonitoring-730ad-default-rtdb.firebaseio.com",
+        projectId: "sismonitoring-730ad",
+        storageBucket: "sismonitoring-730ad.appspot.com",
+        messagingSenderId: "630375801851",
+        appId: "1:630375801851:web:21d7a8d152de4ef4dba15e",
+        measurementId: "G-VJDEWPL32N"
+    };
 
+    const app = firebase.initializeApp(firebaseConfig);
+    var database = firebase.database();
+    var lastId = 0;
+
+    // Proses CRUD listEmployee
         // get post data
         database.ref("employee").on('value', function(snapshot) {
             var value = snapshot.val();
@@ -123,14 +122,14 @@
                         <td>'+ value.home_address +'</td>\
                         <td>'+ value.office_address +'</td>\
                         <td>'+ value.phone_number +'</td>\
-                        <td><a data-bs-toggle="modal" data-bs-target="#update-modal" class="btn btn-success update-post" data-id="' + index + '">Update</a>\
-                        <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="btn btn-danger delete-data" data-id="' + index + '">Delete</a></td>\
+                        <td><a data-bs-toggle="modal" data-bs-target="#update-modal" class="btn btn-warning update-post" data-id="' + index + '"><i class="nav-icon fas fa-info-circle"></i></a>\
+                        <a data-bs-toggle="modal" data-bs-target="#delete-modal" class="btn btn-danger delete-data" data-id="' + index + '"><i class="nav-icon fas fa-trash"></i></a></td>\
                     </tr>');
                 }       
                 lastId = index;
             });
 
-            $('#table-list').html(htmls);
+            $('#list-employee').html(htmls);
         });
 
         // add data
@@ -225,10 +224,115 @@
             }
         }
 
-    //crud userManagement
+    // Proses CRUD userManagement
+        // get post data
+        database.ref("userLogin").on('value', function(snapshot) {
+            var value = snapshot.val();
+            var htmls = [];
+            $.each(value, function(index, value){
+                if(value) {
+                    htmls.push('<tr>\
+                        <td>'+ index +'</td>\
+                        <td>'+ value.idNumber +'</td>\
+                        <td>'+ value.fullname +'</td>\
+                        <td><a data-bs-toggle="modal" data-bs-target="#update-modalUserLogin" class="btn btn-warning update-post" data-id="' + index + '"><i class="nav-icon fas fa-info-circle"></i></a>\
+                        <a data-bs-toggle="modal" data-bs-target="#delete-modalUserLogin" class="btn btn-danger delete-data" data-id="' + index + '"><i class="nav-icon fas fa-trash"></i></a></td>\
+                    </tr>');
+                }       
+                lastIdUser = index;
+            });
+
+            $('#list-userLogin').html(htmls);
+        });
+
+        // add data
+        $('#add-submitUserLogin').on('click', function() {
+            var formData = $('#add-postUserLogin').serializeArray();
+            var createId = Number(lastId) + 1;
+
+            firebase.database().ref('userLogin/' + createId).set({
+                idNumber: formData[0].value,
+                fullname: formData[1].value,
+                password: formData[2].value,
+            });
+
+            // Reassign lastID value
+            lastId = createId;
+            $("#add-postUserLogin")[0].reset();
+            $("#add-userLogin").modal('hide');
+        });
+
+        // update modal
+        var updateID = 0;
+        $('body').on('click', '.update-post', function() {
+            updateID = $(this).attr('data-id');
+            firebase.database().ref('userLogin/' + updateID).on('value', function(snapshot) {
+                var values = snapshot.val();
+                $('#update-idNumber').val(values.idNumber);
+                $('#update-fullname').val(values.fullname);
+                $('#update-password').val(values.password);
+            });
+        });
+
+        // update post
+        $('#update-btnUserLogin').on('click', function() {
+            var values = $("#update-postUserLogin").serializeArray();
+            var postData = {
+                idNumber: values[0].value,
+                fullname: values[1].value,
+                password: values[2].value,
+            };
+
+            var updatedPost = {};
+            updatedPost['userLogin/' + updateID] = postData;
+
+            firebase.database().ref().update(updatedPost);
+
+            $("#update-modalUserLogin").modal('hide');
+            $("#update-postUserLogin")[0].reset();
+        });
+
+        // delete modal
+        $("body").on('click', '.delete-data', function() {
+            var id = $(this).attr('data-id');
+            $('#post-id').val(id);
+        });
+
+        // delete post
+        $('#delete-btnUserLogin').on('click', function() {
+            var id = $('#post-id').val();
+            firebase.database().ref('userLogin/' + id).remove();
+
+            $('#post-id').val('');
+            $("#delete-modalUserLogin").modal('hide');
+        });
 
 
+        //search bar
+        function mySearchFunction() {
+            // Declare variables
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("mySearch");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("list-userLogin");
+            tr = table.getElementsByTagName("tr");
+
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[2];
+                if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+                }
+            }
+        }
 </script>
+<!-- @yield('javascript') -->
+
 
 </body>
 </html>

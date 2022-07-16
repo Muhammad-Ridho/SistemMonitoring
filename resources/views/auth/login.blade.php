@@ -129,7 +129,7 @@
 
               <input type="submit" value="Log In" class="btn btn-block btn-primary">
 
-              <span class="d-block text-left my-4 text-muted">&mdash; or login with &mdash;</span>
+              <!-- <span class="d-block text-left my-4 text-muted">&mdash; or login with &mdash;</span> -->
               
               <!-- <div class="social-login">
                 <a href="#" class="facebook">
