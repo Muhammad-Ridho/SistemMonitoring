@@ -30,7 +30,7 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col text-left">
-                                            <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#add-modal">Tambah Data</button>
+                                            <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#add-modal"><i class="nav-icon fas fa-user-plus"></i> Tambah Data</button>
                                         </div>
                                         <div class="col">
                                             <form class="d-flex" role="search">
