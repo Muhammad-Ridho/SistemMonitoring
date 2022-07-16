@@ -202,12 +202,12 @@
 
 
         //search bar
-        function mySearchFunction() {
+        function mySearchEmployee() {
             // Declare variables
             var input, filter, table, tr, td, i, txtValue;
             input = document.getElementById("mySearch");
             filter = input.value.toUpperCase();
-            table = document.getElementById("table-list");
+            table = document.getElementById("list-employee");
             tr = table.getElementsByTagName("tr");
 
             // Loop through all table rows, and hide those who don't match the search query

@@ -5,12 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>View List</h1>
+                <h1>DATA EMPLOYEE</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">View List</li>
+                <li class="breadcrumb-item active">Employee</li>
                 </ol>
             </div>
             </div>
@@ -37,7 +37,7 @@
                                                 <a role="label" class="btn btn-default">
                                                     <i class="fa fa-search"></i>
                                                 </a>
-                                                <input class="form-control me-2" id="mySearch" onkeyup="mySearchFunction()" type="search" placeholder="Search" aria-label="Search">
+                                                <input class="form-control me-2" id="mySearch" onkeyup="mySearchEmployee()" type="search" placeholder="Search" aria-label="Search">
                                             </form> 
                                         </div>
                                     </div>
